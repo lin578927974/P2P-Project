@@ -39,7 +39,11 @@
 			</tr>
 			<tr>
 				<td class="trSpan">验证码：</td>
-				<td><input style="width: 50px; text-transform: uppercase;" type="text" id="ValidateCode" name="ValidateCode"/></td>
+				<td>
+					<input style="width: 50px; text-transform: uppercase;" type="text" id="ValidateCode" name="ValidateCode"/>
+					<img src="<%=basePath%>SecurityCodeImageAction.do" id="Verify"  style="cursor:hand;" alt="看不清，换一张"/>
+					<a>看不清？换一张</a>
+				</td>
 			</tr>
 			<tr>
 				<td></td>

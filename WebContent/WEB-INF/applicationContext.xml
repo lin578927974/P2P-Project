@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+<!-- 定义数据源的信息 --> 
+<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"  
+        destroy-method="close">
+	<property name="driverClass">  
+		<value>com.mysql.jdbc.Driver</value>
+    </property>  
+    <property name="jdbcUrl">  
+    	<value>jdbc:mysql://127.0.0.1/p2p</value>  
+    </property>  
+    <property name="user">  
+    	<value>root</value>
+    </property>  
+    <property name="password">  
+    	<value>123456</value>  
+    </property>
+    <property name="maxPoolSize">  
+    	<value>80</value>  
+    </property>  
+    <property name="minPoolSize">  
+    	<value>1</value>  
+    </property>  
+    <property name="initialPoolSize">  
+    	<value>1</value>  
+    </property>  
+    <property name="maxIdleTime">  
+    	<value>20</value>  
+    </property>
+</bean>
+
+<!-- 验证码的Action -->  
+<bean id="securityAction" class="com.p2p.action.SecurityCodeImageAction" >
+</bean>  
+
+</beans>
