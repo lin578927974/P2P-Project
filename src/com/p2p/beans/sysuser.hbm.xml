@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  
+<hibernate-mapping package="com.p2p.beans">  
+    <class name="sysuser" table="sysuser">  
+        <id name="userId" column="userId" type="java.lang.String" length="32">
+        	<generator class="uuid">  
+    		</generator>  
+    	</id>
+        <property name="password" column="password" type="java.lang.String"  
+            not-null="true" length="32"></property>  
+        <property name="payPassword" column="payPassword" type="java.lang.String"  
+             length="32" />  
+        <property name="roleID" column="roleID" type="java.lang.String" not-null="true" length="36" />
+        <property name="userType" column="userType" type="java.lang.Integer" not-null="true" length="1" />
+        <property name="assAccount" column="assAccount" type="java.lang.String" length="40" />
+        <property name="isBind" column="isBind" type="java.lang.Integer" not-null="true" length="1" />
+        <property name="amount" column="amount" type="java.math.BigDecimal" not-null="true" precision="18" scale="2" />
+        <property name="freeze" column="freeze" type="java.math.BigDecimal" not-null="true" precision="18" scale="2" />
+        <property name="score" column="score" type="java.lang.Integer" not-null="true" length="11" />
+        <property name="rcmCode" column="rcmCode" type="java.lang.String" not-null="true" length="20" />
+        <property name="rcmUser" column="rcmUser" type="java.lang.String" length="36" />
+        <property name="openID" column="openID" type="java.lang.String" length="28" />
+        <property name="Security" column="Security" type="java.lang.String" length="100" />
+        <property name="Question" column="Question" type="java.lang.String" length="100" />
+        <property name="answer" column="answer" type="java.lang.String" length="100" />
+        <property name="isLog" column="isLog" type="java.lang.Boolean" length="1" />
+        <property name="loginExpire" column="loginExpire" type="java.lang.Date" />
+        <property name="regTime" column="regTime" type="java.lang.Date" />
+        <property name="state" column="state" type="java.lang.Integer" length="4" />
+        <property name="remark" column="remark" type="java.lang.String" length="200" />
+    </class>
+</hibernate-mapping> 
