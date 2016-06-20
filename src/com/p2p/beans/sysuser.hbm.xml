@@ -5,7 +5,7 @@
   
 <hibernate-mapping package="com.p2p.beans">  
     <class name="sysuser" table="sysuser">  
-        <id name="userId" column="userId" type="java.lang.String" length="32">
+        <id name="userId" column="userId" type="java.lang.String" length="36">
         	<generator class="uuid">  
     		</generator>  
     	</id>
