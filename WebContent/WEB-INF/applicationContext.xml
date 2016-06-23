@@ -36,4 +36,7 @@
 <bean id="securityAction" class="com.p2p.action.SecurityCodeImageAction" >
 </bean>  
 
+<bean id="loginAction" class="com.p2p.action.LoginAction"></bean>
+
+
 </beans>

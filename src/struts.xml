@@ -12,5 +12,9 @@
             	<param name="bufferSize">2048</param>
           	</result>
 		</action>
+		<action name="login"  class="loginAction">
+			<result name="input">/page/inedx.jsp</result>
+			<result name="success">/login.jsp</result>
+		</action>
 	</package>
 </struts>

@@ -52,9 +52,19 @@
             $("#mes").html("验证码不能为空！");
             return;
         }
-		//$("#Loading").show();
+		$("#Loading").show();
 		//请求验证
-		return false;
+		$.post("login.do",{
+			UserName: $("#username").val(),
+            Password: $("#userpwd").val(),
+            CheckCode: $("#ValidateCode").val()
+		},function(data){},"json");
+/* 		$.ajax({
+			url:"login.do",
+			async:false,
+			success:function(){}
+		}); */
+		//return false;
 	};
 </script>
 </head>
