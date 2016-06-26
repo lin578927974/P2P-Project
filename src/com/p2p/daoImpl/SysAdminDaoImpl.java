@@ -1,14 +1,17 @@
 package com.p2p.daoImpl;
 
+import com.p2p.beans.*;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.p2p.dao.BaseDao;
+import com.p2p.dao.SysAdminDao;
 
-public class SysAdminDao implements BaseDao {
+public class SysAdminDaoImpl implements SysAdminDao {
 	private SessionFactory sessionFactory;
+	
 	public SessionFactory getSessionFactory(){
 		return sessionFactory;
 	}
@@ -22,7 +25,7 @@ public class SysAdminDao implements BaseDao {
 		return sessionFactory.openSession();
 	}
 	
-	public void selectObject(Object object) throws HibernateException{
-		this.getCurrentSession().createSQLQuery("select ");
+	public sysadmin getBean(sysadmin sysadmin) throws HibernateException{
+		return (sysadmin) this.getCurrentSession().createQuery("select ").uniqueResult();		
 	}
 }

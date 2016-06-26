@@ -32,11 +32,52 @@
     </property>
 </bean>
 
+<bean id="sessionFactory"  
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	<property name="dataSource">
+		<ref local="dataSource" />
+	</property>
+	<property name="mappingResources">  
+		<list>  
+			<value>com/p2p/beans/sysadmin.hbm.xml</value>  
+		</list>  
+	</property>
+	<property name="hibernateProperties">  
+		<props>  
+			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+			<prop key="show_sql">true</prop>  
+			<prop key="hibernate.jdbc.batch_size">20</prop>  
+		</props>  
+	</property> 
+</bean>
+
 <!-- 验证码的Action -->  
 <bean id="securityAction" class="com.p2p.action.SecurityCodeImageAction" >
+</bean>
+
+
+<bean id="transactionManager"  
+        class="org.springframework.orm.hibernate4.HibernateTransactionManager">  
+	<property name="sessionFactory" ref="sessionFactory" />  
 </bean>  
 
-<bean id="loginAction" class="com.p2p.action.LoginAction"></bean>
+<bean id="sysadminDao" class="com.p2p.daoImpl.SysAdminDaoImpl">
+	<property name="sessionFactory">
+		<ref bean="sessionFactory"/>
+	</property>
+</bean>
+
+<bean id="sysadminService" class="com.p2p.serviceImpl.SysAdminServiceImpl">
+	<property name="adminservice">
+		<ref bean="sysadminDao"/>
+	</property>
+</bean>
+
+<bean id="loginAction" class="com.p2p.action.LoginAction">
+	<property name="sysadminService">
+		<ref bean="sysadminService"/>
+	</property>
+</bean>
 
 
 </beans>

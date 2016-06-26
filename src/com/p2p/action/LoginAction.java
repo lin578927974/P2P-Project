@@ -8,11 +8,18 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.p2p.beans.sysadmin;
+import com.p2p.service.SysAdminService;
+import com.p2p.util.Security;
 
-@SuppressWarnings("serial")
 public class LoginAction extends ActionSupport implements SessionAware,ServletRequestAware {
 
 	private static final long serialVersionUID = 1L;
+	
+	private SysAdminService sysAdminService;
+	public void setSysAdminService(SysAdminService sysAdminService){
+		this.sysAdminService=sysAdminService;
+	}
 
 	/**
 	 * —È÷§¬Î∂¡»°
@@ -66,7 +73,16 @@ public class LoginAction extends ActionSupport implements SessionAware,ServletRe
 			String servercode=(String)session.get("SESSION_SECURITY_CODE");
 			String name=request.getParameter("UserName");
 			String pwd=request.getParameter("Password");
-			String code=request.getParameter("CheckCode"); 
+			String code=request.getParameter("CheckCode");
+			if(!servercode.equals(code)){
+				return ERROR;
+			}
+			sysadmin model=new sysadmin();
+			model.setAdminID(name);
+			model.setPsssword(Security.pareStrToMd5U32(pwd));
+			if(sysAdminService.loginSysAdmin(model)){
+				return SUCCESS;
+			}
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
