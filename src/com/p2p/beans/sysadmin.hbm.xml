@@ -6,8 +6,8 @@
 <hibernate-mapping package="com.p2p.beans">  
     <class name="sysadmin" table="sysadmin">
         <id name="AdminID" column="userId" type="java.lang.String" length="32"></id>
-<!--         <property name="Psssword" column="Psssword" type="java.lang.String" not-null="true" length="32"></property>  
-        <property name="RoleID" column="RoleID" type="java.lang.String"  length="36" />  
+         <property name="Psssword" column="Psssword" type="java.lang.String" not-null="true" length="32"></property>  
+<!--        <property name="RoleID" column="RoleID" type="java.lang.String"  length="36" />  
         <property name="JobID" column="JobID" type="java.lang.String" not-null="true" length="36" />
         <property name="OrgCode" column="OrgCode" type="java.lang.String" not-null="true" length="36" />
         <property name="Post" column="Post" type="java.lang.String" length="20" />

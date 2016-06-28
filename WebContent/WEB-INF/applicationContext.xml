@@ -68,13 +68,13 @@
 </bean>
 
 <bean id="sysadminService" class="com.p2p.serviceImpl.SysAdminServiceImpl">
-	<property name="adminservice">
+	<property name="sysAdminDao"><!-- 这边的命名要与类定义的名字一样，否则会出错 -->
 		<ref bean="sysadminDao"/>
 	</property>
 </bean>
 
 <bean id="loginAction" class="com.p2p.action.LoginAction">
-	<property name="sysadminService">
+	<property name="sysAdminService">
 		<ref bean="sysadminService"/>
 	</property>
 </bean>
