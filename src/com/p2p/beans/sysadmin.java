@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class sysadmin {
 	private String AdminID;
-	private String Psssword;
+	private String Password;
 	private String RoleID;
 	private String JobID;
 	private String OrgCode;
@@ -35,11 +35,11 @@ public class sysadmin {
 	public void setAdminID(String adminID) {
 		AdminID = adminID;
 	}
-	public String getPsssword() {
-		return Psssword;
+	public String getPassword() {
+		return Password;
 	}
-	public void setPsssword(String psssword) {
-		Psssword = psssword;
+	public void setPassword(String password) {
+		Password = password;
 	}
 	public String getRoleID() {
 		return RoleID;

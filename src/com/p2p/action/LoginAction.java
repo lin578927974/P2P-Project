@@ -79,7 +79,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ServletRe
 			}
 			sysadmin model=new sysadmin();
 			model.setAdminID(name);
-			model.setPsssword(Security.pareStrToMd5U32(pwd));
+			model.setPassword(Security.pareStrToMd5U32(pwd));
 			if(sysAdminService.loginSysAdmin(model)){
 				return SUCCESS;
 			}

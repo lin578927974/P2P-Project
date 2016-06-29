@@ -26,6 +26,10 @@ public class SysAdminDaoImpl implements SysAdminDao {
 	}
 	
 	public sysadmin getBean(sysadmin sysadmin) throws HibernateException{
-		return (sysadmin) this.getCurrentSession().createQuery("select ").uniqueResult();		
+		String hql="from sysadmin u where u.AdminID=:username and u.Password=:userpwd";
+		return (sysadmin) this.getCurrentSession().createQuery(hql)
+				.setString("username",sysadmin.getAdminID())
+				.setString("userpwd", sysadmin.getPassword())
+				.uniqueResult();		
 	}
 }
