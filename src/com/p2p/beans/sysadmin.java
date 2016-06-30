@@ -21,13 +21,13 @@ public class sysadmin {
 	private String County;
 	private String ZipCode;
 	private String Sex;
-	private int BirthType;
-	private int BirthYear;
-	private int BirthMonth;
-	private int BirthDay;
-	private int IsLog;
+	private Byte BirthType;
+	private Short BirthYear;
+	private Byte BirthMonth;
+	private Byte BirthDay;
+	private Boolean IsLog;
 	private Date LoginExpire;
-	private int State;
+	private Byte State;
 	private String Remark;
 	public String getAdminID() {
 		return AdminID;
@@ -137,34 +137,34 @@ public class sysadmin {
 	public void setSex(String sex) {
 		Sex = sex;
 	}
-	public int getBirthType() {
+	public Byte getBirthType() {
 		return BirthType;
 	}
-	public void setBirthType(int birthType) {
+	public void setBirthType(Byte birthType) {
 		BirthType = birthType;
 	}
-	public int getBirthYear() {
+	public Short getBirthYear() {
 		return BirthYear;
 	}
-	public void setBirthYear(int birthYear) {
+	public void setBirthYear(Short birthYear) {
 		BirthYear = birthYear;
 	}
-	public int getBirthMonth() {
+	public Byte getBirthMonth() {
 		return BirthMonth;
 	}
-	public void setBirthMonth(int birthMonth) {
+	public void setBirthMonth(Byte birthMonth) {
 		BirthMonth = birthMonth;
 	}
-	public int getBirthDay() {
+	public Byte getBirthDay() {
 		return BirthDay;
 	}
-	public void setBirthDay(int birthDay) {
+	public void setBirthDay(Byte birthDay) {
 		BirthDay = birthDay;
 	}
-	public int getIsLog() {
+	public Boolean getIsLog() {
 		return IsLog;
 	}
-	public void setIsLog(int isLog) {
+	public void setIsLog(Boolean isLog) {
 		IsLog = isLog;
 	}
 	public Date getLoginExpire() {
@@ -173,10 +173,10 @@ public class sysadmin {
 	public void setLoginExpire(Date loginExpire) {
 		LoginExpire = loginExpire;
 	}
-	public int getState() {
+	public Byte getState() {
 		return State;
 	}
-	public void setState(int state) {
+	public void setState(Byte state) {
 		State = state;
 	}
 	public String getRemark() {

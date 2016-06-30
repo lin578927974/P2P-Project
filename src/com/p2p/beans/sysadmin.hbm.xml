@@ -4,16 +4,16 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
   
 <hibernate-mapping package="com.p2p.beans">  
-    <class name="sysadmin" table="sysadmin">
+ <!--    <class name="sysadmin" table="sysadmin">
         <id name="AdminID" column="AdminID" type="java.lang.String" length="32"></id>
          <property name="Password" column="Password" type="java.lang.String" not-null="true" length="32"></property>  
-<!--        <property name="RoleID" column="RoleID" type="java.lang.String"  length="36" />  
+        <property name="RoleID" column="RoleID" type="java.lang.String"  length="36" />  
         <property name="JobID" column="JobID" type="java.lang.String" not-null="true" length="36" />
         <property name="OrgCode" column="OrgCode" type="java.lang.String" not-null="true" length="36" />
         <property name="Post" column="Post" type="java.lang.String" length="20" />
         <property name="RealName" column="RealName" type="java.lang.String" not-null="true" length="15" />
-        <property name="Card" column="Card" type="java.math.String" length="18"/>
-        <property name="TEL" column="TEL" type="java.math.String" not-null="true" length="15" />
+        <property name="Card" column="Card" type="java.lang.String" length="18"/>
+        <property name="TEL" column="TEL" type="java.lang.String" not-null="true" length="15" />
         <property name="Phone" column="Phone" type="java.lang.String" not-null="true" length="11" />
         <property name="Email" column="Email" type="java.lang.String" not-null="true" length="60" />
         <property name="Address" column="Address" type="java.lang.String" length="200" />
@@ -27,9 +27,38 @@
         <property name="BirthYear" column="BirthYear" type="java.lang.Short" length="6" />
         <property name="BirthMonth" column="BirthMonth" type="java.lang.Byte" length="4" />
         <property name="BirthDay" column="BirthDay" type="java.lang.Byte" length="4" />
-        <property name="BirthDay" column="BirthDay" type="java.lang.Boolean" length="1" />
-        <property name="LoginExpire" column="LoginExpire" type="java.lang.Date"  />
+        <property name="IsLog" column="IsLog" type="java.lang.Boolean" length="1" />
+        <property name="LoginExpire" column="LoginExpire" type="java.util.Date"  />
         <property name="State" column="State" type="java.lang.Byte" length="4"  />
-        <property name="Remark" column="Remark" type="java.lang.String" length="200"  />
- -->    </class>
+       <property name="Remark" column="Remark" type="java.lang.String" length="200"  />
+    </class>
+    -->
+    <class name="sysadmin" table="sysadmin">
+        <id name="AdminID" column="AdminID" type="string" length="32"></id>
+        <property name="Password" column="Password" type="string" not-null="true" length="32"></property>  
+        <property name="RoleID" column="RoleID" type="string"  length="36" />  
+        <property name="JobID" column="JobID" type="string" not-null="true" length="36" />
+        <property name="OrgCode" column="OrgCode" type="string" not-null="true" length="36" />
+        <property name="Post" column="Post" type="string" length="20" />
+        <property name="RealName" column="RealName" type="string" not-null="true" length="15" />
+        <property name="Card" column="Card" type="string" length="18"/>
+        <property name="TEL" column="TEL" type="string" not-null="true" length="15" />
+        <property name="Phone" column="Phone" type="string" not-null="true" length="11" />
+        <property name="Email" column="Email" type="string" not-null="true" length="60" />
+        <property name="Address" column="Address" type="string" length="200" />
+        <property name="Fax" column="Fax" type="string" length="15" />
+        <property name="Province" column="Province" type="string" length="6" />
+        <property name="City" column="City" type="string" length="6" />
+        <property name="County" column="County" type="string" length="6" />
+        <property name="ZipCode" column="ZipCode" type="string" length="6" />
+        <property name="Sex" column="Sex" type="string" length="1" />
+        <property name="BirthType" column="BirthType" type="byte"  length="4"/>
+        <property name="BirthYear" column="BirthYear" type="short" length="6" />
+        <property name="BirthMonth" column="BirthMonth" type="byte" length="4" />
+        <property name="BirthDay" column="BirthDay" type="byte" length="4" />
+        <property name="IsLog" column="IsLog" type="boolean" length="1" />
+        <property name="LoginExpire" column="LoginExpire" type="date"  />
+        <property name="State" column="State" type="byte" length="4"  />
+       <property name="Remark" column="Remark" type="string" length="200"  />
+    </class>
 </hibernate-mapping> 
