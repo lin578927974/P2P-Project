@@ -4,7 +4,7 @@
 <struts>
 	<constant name="struts.action.extension" value="do"/>  
 	<include file="struts-default.xml"></include>
-	<package name="a" extends="struts-default">
+	<package name="a" extends="struts-default,json-default">
 		<action name="SecurityCodeImageAction"  class="securityAction">
 			<result name="success" type="stream">
             	<param name="contentType">image/jpeg</param>
@@ -12,9 +12,13 @@
             	<param name="bufferSize">2048</param>
           	</result>
 		</action>
-		<action name="login"  class="loginAction">
+		<action name="login"  class="loginAction" method="login">
 			<result name="input">/page/inedx.jsp</result>
-			<result name="success">/login.jsp</result>
+			<result name="success" type="json">
+				<param name="location">/login.jsp</param>
+				<param name="root">map</param>
+			<!-- /login.jsp -->
+			</result>
 		</action>
 	</package>
 </struts>

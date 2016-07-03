@@ -13,11 +13,11 @@ public class SysAdminServiceImpl implements SysAdminService {
 	}
 
 	@Override
-	public boolean loginSysAdmin(sysadmin sysadmin) {
+	public sysadmin loginSysAdmin(sysadmin sysadmin) {
 		sysadmin model=sysAdminDao.getBean(sysadmin);
 		if(model!=null){
-			return true;
+			return model;
 		}
-		return false;
+		return null;
 	}
 }

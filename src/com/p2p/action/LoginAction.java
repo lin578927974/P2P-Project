@@ -1,5 +1,6 @@
 package com.p2p.action;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,12 @@ public class LoginAction extends ActionSupport implements SessionAware,ServletRe
 	 * */
 	private Map<String, Object> session;
 	
+	private Map<String, Object> map;
+	
+	public Map<String, Object> getMap() {
+		return map;
+	}
+
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session=session;
@@ -66,9 +73,9 @@ public class LoginAction extends ActionSupport implements SessionAware,ServletRe
 	
 	
 	/**
-	 * 用户登录
+	 * 用户登录 execute
 	 * */
-	public String execute(){
+	public String login(){
 		try{
 			String servercode=(String)session.get("SESSION_SECURITY_CODE");
 			String name=request.getParameter("UserName");
@@ -80,7 +87,11 @@ public class LoginAction extends ActionSupport implements SessionAware,ServletRe
 			sysadmin model=new sysadmin();
 			model.setAdminID(name);
 			model.setPassword(Security.pareStrToMd5U32(pwd));
-			if(sysAdminService.loginSysAdmin(model)){
+			sysadmin info=sysAdminService.loginSysAdmin(model);
+			if(info!=null){
+				map=new HashMap<String, Object>();			
+				map.put("users", info);
+				map.put("success", true);
 				return SUCCESS;
 			}
 		}catch(Exception ex){
