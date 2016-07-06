@@ -58,12 +58,14 @@
 			UserName: $("#username").val(),
             Password: $("#userpwd").val(),
             CheckCode: $("#ValidateCode").val()
-		},function(data){},"json");
-/* 		$.ajax({
-			url:"login.do",
-			async:false,
-			success:function(){}
-		}); */
+		},function(data){
+			if(data.success){
+				window.location = "<%=basePath%>page/index.jsp";
+			}else{
+				$("#Loading").hide();
+				alert(data.message);
+			}
+		},"json");
 		//return false;
 	};
 </script>
@@ -90,7 +92,7 @@
 			</tr>
 			<tr>
 				<td class="trSpan">密码：</td>
-				<td><input type="text" id="userpwd" name="userpwd"/></td>
+				<td><input type="password" id="userpwd" name="userpwd"/></td>
 			</tr>
 			<tr>
 				<td class="trSpan">验证码：</td>

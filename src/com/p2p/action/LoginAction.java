@@ -82,6 +82,9 @@ public class LoginAction extends ActionSupport implements SessionAware,ServletRe
 			String pwd=request.getParameter("Password");
 			String code=request.getParameter("CheckCode");
 			if(!servercode.equals(code)){
+				map=new HashMap<String, Object>();			
+				map.put("message", "验证码错误");
+				map.put("success", false);
 				return ERROR;
 			}
 			sysadmin model=new sysadmin();
@@ -90,14 +93,21 @@ public class LoginAction extends ActionSupport implements SessionAware,ServletRe
 			sysadmin info=sysAdminService.loginSysAdmin(model);
 			if(info!=null){
 				map=new HashMap<String, Object>();			
-				map.put("users", info);
+				map.put("message", "登录成功");
 				map.put("success", true);
 				return SUCCESS;
 			}
 		}catch(Exception ex){
+			map=new HashMap<String, Object>();			
+			map.put("message", "系统异常，请联系管理员");
+			map.put("success", false);
 			ex.printStackTrace();
+			return ERROR;
 		}
-		return SUCCESS;
+		map=new HashMap<String, Object>();			
+		map.put("message", "账号或密码错误");
+		map.put("success", false);
+		return ERROR;
 	}
 	
 	
