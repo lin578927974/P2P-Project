@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping>
+	<class name="sysmodule" table="sysmodule">
+		<id name="MdlCode" column="MdlCode" type="string" length="36" ></id>
+		<property name="MdlName" column="MdlName" type="string" length="60" not-null="true"></property>
+		<property name="Description" column="Description" type="string" length="400"></property>
+		<property name="AnotherCode" column="AnotherCode" type="string" length="36"></property>
+		<property name="AbbName" column="AbbName" type="string" length="20"></property>
+		<property name="EnName" column="EnName" type="string" length="120"></property>
+		<property name="MdlType" column="MdlType" type="byte" length="4" not-null="true"></property>
+		<property name="MdlClass" column="MdlClass" type="byte" length="4" not-null="true"></property>
+		<property name="UpCode" column="UpCode" type="string" length="36"></property>
+		<property name="LinkUrl" column="LinkUrl" type="string" length="200"></property>
+		<property name="IcoUrl" column="IcoUrl" type="string" length="200"></property>
+		<property name="OrderDesc" column="OrderDesc" type="short" length="6"></property>
+		<property name="State" column="State" type="byte" length="4"></property>
+		<property name="Remark" column="Remark" type="string" length="200"></property>
+	</class>
+</hibernate-mapping>
