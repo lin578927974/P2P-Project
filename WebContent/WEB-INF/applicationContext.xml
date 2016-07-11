@@ -40,6 +40,7 @@
 	<property name="mappingResources">  
 		<list>  
 			<value>com/p2p/beans/sysadmin.hbm.xml</value>  
+			<value>com/p2p/beans/sysmodule.hbm.xml</value>
 		</list>  
 	</property>
 	<property name="hibernateProperties">  
