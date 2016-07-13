@@ -148,7 +148,7 @@ $(function () {
     $.post("/SysManage/GetTree", { "id": "SysPlatform" },
         function (data) {
             if (data == "0") {
-                window.location = "/SysAccount";
+                window.location = "../login.jsp";
             }
             o.data = data;
             $("#RightTree").treeview(o);
